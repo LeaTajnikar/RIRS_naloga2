@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Frontend CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: 
+    - main
+  pull_request:
+    branches: 
+    - main
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # Ime job-a za testiranje frontenda
+  test-frontend:
+    runs-on: ubuntu-latest  # Okolje, v katerem bo job tekel
+    
+    steps:
+    - name: Checkout code  # Kloniranje repozitorija
+      uses: actions/checkout@v3
+    
+    - name: Setup Node.js  # Namestitev Node.js okolja
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    
+    - name: Install dependencies  # Namestitev odvisnosti
+      run: |
+        cd frontend
+        npm install
+    
+    - name: Run tests with coverage  # Izvajanje testov s pokritostjo
+      run: |
+        cd frontend
+        npm run test:ci
+    
+    - name: Upload coverage report  # Naložitev poročila o pokritosti
+      uses: actions/upload-artifact@v3
+      with:
+        name: frontend-coverage
+        path: frontend/coverage/
