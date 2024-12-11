@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useAuth } from '../../../context/Context';
-import './Profile.css'; // Za dodatno stilizacijo (neobvezno)
+import React, { useState } from 'react';
+import './Profile.css';
 
 const Profile = () => {
   const [userData, setUserData] = useState({
