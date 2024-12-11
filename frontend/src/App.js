@@ -11,6 +11,7 @@ import LeaveAndVacation from './components/pages/LeaveAndVacation/LeaveAndVacati
 import Login from './auth/Login';
 import Register from './auth/Register';
 import { AuthProvider } from './context/Context';
+import Profile from './components/pages/Profile/Profile';
 
 function App() {
   const [role, setRole] = useState(null);
@@ -58,6 +59,10 @@ function App() {
               <Route
                 path="/leaves"
                 element={isAuthenticated ? <LeaveAndVacation /> : <Navigate to="/login" />}
+              />
+              <Route
+                path="/profile"
+                element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}
               />
             </Routes>
           </div>

@@ -26,4 +26,8 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
+app.get('/api/hello', (req, res) => {
+  res.status(200).json({ message: 'Hello, world!' });
+});
+
 module.exports = app;

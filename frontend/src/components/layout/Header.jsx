@@ -38,6 +38,9 @@ function Header({ role, setRole, setIsAuthenticated }) {
               <Link className="nav-link text-dark" to="/leaves">Moji dopusti/bolniške</Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link text-dark" to="/profile">Moj profil</Link>
+            </li>
+            <li className="nav-item">
               <button className="nav-link btn btn-link text-dark" onClick={handleLogout}>Odjava</button>
             </li>
           </ul>
